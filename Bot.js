@@ -47,9 +47,9 @@ client.on("message",(message) => {
 				]
 			}
 		});
-		message.react(':one:');
-		message.react(':two:');
-		message.react(':three:');
+		message.react('one');
+		message.react('two');
+		message.react('three');
 	}
 
 
