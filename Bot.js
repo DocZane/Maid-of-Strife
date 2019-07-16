@@ -12,33 +12,33 @@ client.on("message",(message) => {
 	
 	if (!message.content.startsWith(auth.prefix) || message.author.bot)
 		return;
-	if (message.content.startsWith(auth.prefix+"kill")&& message.member.id == auth.ownerID) {
+	if (command === 'kill'&& message.member.id == auth.ownerID) {
 		message.channel.send("I'm Sorry Dave, I'm Afraid I Can't Do That.");
 	}
-	else if(message.content.startsWith(auth.prefix+"ping")) {
+	else if(command === 'ping')) {
 		message.channel.send("Pong!");
 	}
-	else if (message.content.startsWith(auth.prefix+"pong")) {
+	else if (command === 'pong')) {
 		message.channel.send("Ping!");
 	}
-	else if(message.content.startsWith(auth.prefix+"helper")) {
-		if (message.member.roles.get('596787797998698522')) {
+	else if(command === 'helper') {
+		if (message.member.roles.find(role => role.name === 'Helper')) {
 			message.channel.send("Yes, You are a helper!");
 		}
 		else {
 			message.channel.send("No, You aren't a helper!");
 		}
 	}
-	else if(message.content.startsWith(auth.prefix+"dm")) {
-		if(message.member.roles.get('596485222443515924')) {
+	else if(command === 'dm')) {
+		if(message.member.roles.find(role => role.name === 'DM')) {
 			message.channel.send("Yes, You are a DM!");
 		}
 		else {
 			message.channel.send("No, You aren't a DM!");
 		}
 	}
-	else if(message.content.startsWith(auth.prefix+"player")) {
-		if(message.member.roles.get('596558352327114754')) {
+	else if(command == 'player')) {
+		if(message.member.roles.find(role => role.name === 'Player')) {
 			message.channel.send("Yes, You are a player!");
 		}
 		else {
