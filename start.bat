@@ -1,2 +1,2 @@
-nodemon C:\users\bexhi\Appdata\Roaming\npm Bot.js
+nodemon bot.js
 pause

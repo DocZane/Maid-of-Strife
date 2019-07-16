@@ -18,9 +18,9 @@ client.on("message",(message) => {
 	if (command === 'kill' && message.member.id == auth.ownerID) {
 		message.channel.send("I'm Sorry Dave, I'm Afraid I Can't Do That.",{tts: true});
 	}
-	else if (message.member.id == auth.targetID) {
+	/*else if (message.member.id == auth.targetID) {
 		message.channel.send("No.");
-	}
+	}*/
 	else if (command === 'ping') {
 		message.channel.send("Pong!");
 	}
@@ -28,28 +28,21 @@ client.on("message",(message) => {
 		message.channel.send("Ping!");
 	}
 	else if (command === 'strife') {
-		message.channel.send({embed: {
-				color: 3447003,
-				title: "What do you want to Strife?",
-
-				fields: [{
-						name: "Imp",
-						value: "test"
-					},
-					{
-						name: "Ogre",
-						value: "test"
-					},
-					{
-						name: "Basilisk",
-						value: "test"
-					}
-				]
-			}
+		const embed = new Discord.RichEmbed()
+			.setColor(3447003)
+			.setTitle("What do you want to Strife?")
+			.addField("Imp", "test")
+			.addField("Ogre", "test")
+			.addField("Basilisk", "test");
+			const emoji = client.emojis.find(emoji => emoji.name === 'one');
+		message.channel.send({embed}).then(sentEmbed => {
+			sentEmbed.react(emoji.id);
+				//'🤔')
 		});
-		message.react((client.emojis.find(emoji => emoji.name === "one")).id);
-		message.react((client.emojis.find(emoji => emoji.name === "two")).id);
-		message.react((client.emojis.find(emoji => emoji.name === "three")).id);
+		/*const one = client.emojis.find(emoji => emoji.name === 'one')
+		message.react(one.id);*/
+		/*message.react((client.emojis.find(emoji => emoji.name === 'two')).id);
+		message.react((client.emojis.find(emoji => emoji.name === 'three')).id);*/
 	}
 
 
