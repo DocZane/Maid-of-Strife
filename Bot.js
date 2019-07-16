@@ -28,7 +28,7 @@ client.on("message",(message) => {
 		message.channel.send("Ping!");
 	}
 	else if (command === 'strife'){
-
+		message.channel.send("'''What do you want to Strife?'''");
 	}
 	/*else if (command === 'helper') {
 		if (message.member.roles.find(role => role.name === 'Helper')) {
