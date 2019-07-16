@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
-const auth = require("./auth.json");
+const auth = require("../Maid of Strife Json dump/auth.json");
 
 client.on("ready",() => {
 	console.log("I am Ready!");
