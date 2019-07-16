@@ -41,15 +41,15 @@ client.on("message",(message) => {
 						value: "test"
 					},
 					{
-						name: "Basalisk",
+						name: "Basilisk",
 						value: "test"
 					}
 				]
 			}
 		});
-		message.react('one');
-		message.react('two');
-		message.react('three');
+		message.react((client.emojis.find(emoji => emoji.name === "one")).id);
+		message.react((client.emojis.find(emoji => emoji.name === "two")).id);
+		message.react((client.emojis.find(emoji => emoji.name === "three")).id);
 	}
 
 
