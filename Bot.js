@@ -41,7 +41,7 @@ client.on("message",(message) => {
 			message.channel.send("No, You aren't a DM!");
 		}
 	}
-	else if(command == 'player') {
+	else if (command == 'player') {
 		if(message.member.roles.find(role => role.name === 'Player')) {
 			message.channel.send("Yes, You are a player!");
 		}
