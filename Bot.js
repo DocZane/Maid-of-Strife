@@ -2,6 +2,8 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const auth = require("../Maid of Strife Json dump/auth.json");
 
+
+
 client.on("ready",() => {
 	console.log("I am Ready!");
 });
@@ -14,7 +16,7 @@ client.on("message",(message) => {
 	const command = args.shift().toLowerCase();
 
 	if (command === 'kill' && message.member.id == auth.ownerID) {
-		message.channel.send("I'm Sorry Dave, I'm Afraid I Can't Do That.");
+		message.channel.send("I'm Sorry Dave, I'm Afraid I Can't Do That."{tts: true});
 	}
 	else if (message.member.id == auth.targetID) {
 		message.channel.send("No.");
@@ -25,7 +27,10 @@ client.on("message",(message) => {
 	else if (command === 'pong') {
 		message.channel.send("Ping!");
 	}
-	else if (command === 'helper') {
+	else if (command === 'strife'){
+
+	}
+	/*else if (command === 'helper') {
 		if (message.member.roles.find(role => role.name === 'Helper')) {
 			message.channel.send("Yes, You are a helper!");
 		}
@@ -48,7 +53,7 @@ client.on("message",(message) => {
 		else {
 			message.channel.send("No, You aren't a player!");
 		}
-	}
+	}*/
 });
 
 client.login(auth.token)
