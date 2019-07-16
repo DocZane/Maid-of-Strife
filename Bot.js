@@ -10,7 +10,7 @@ client.on("message",(message) => {
 	if (!message.content.startsWith(auth.prefix) || message.author.bot)
 		return;
 
-	const args = message.content.slice(prefix.length).trim().split(/ +/g);
+	const args = message.content.slice(auth.prefix.length).trim().split(/ +/g);
 	const command = args.shift().toLowerCase();
 
 	if (command === 'kill' && message.member.id == auth.ownerID) {
