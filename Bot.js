@@ -15,10 +15,10 @@ client.on("message",(message) => {
 	if (command === 'kill'&& message.member.id == auth.ownerID) {
 		message.channel.send("I'm Sorry Dave, I'm Afraid I Can't Do That.");
 	}
-	else if(command === 'ping')) {
+	else if(command === 'ping') {
 		message.channel.send("Pong!");
 	}
-	else if (command === 'pong')) {
+	else if (command === 'pong') {
 		message.channel.send("Ping!");
 	}
 	else if(command === 'helper') {
@@ -29,7 +29,7 @@ client.on("message",(message) => {
 			message.channel.send("No, You aren't a helper!");
 		}
 	}
-	else if(command === 'dm')) {
+	else if(command === 'dm') {
 		if(message.member.roles.find(role => role.name === 'DM')) {
 			message.channel.send("Yes, You are a DM!");
 		}
@@ -37,7 +37,7 @@ client.on("message",(message) => {
 			message.channel.send("No, You aren't a DM!");
 		}
 	}
-	else if(command == 'player')) {
+	else if(command == 'player') {
 		if(message.member.roles.find(role => role.name === 'Player')) {
 			message.channel.send("Yes, You are a player!");
 		}
