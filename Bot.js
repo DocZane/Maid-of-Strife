@@ -16,30 +16,30 @@ client.on("message",(message) => {
 		message.channel.send("Pong!");
 	}
 	else if (message.content.startsWith(auth.prefix+"pong")) {
-		message.channel.send("Ping!")
+		message.channel.send("Ping!");
 	}
 	else if(message.content.startsWith(auth.prefix+"Am I a Helper")) {
 		if (message.member.roles.get('596787797998698522')) {
-			message.channel.send("Yes, You are!")
+			message.channel.send("Yes, You are!");
 		}
 		else {
-			message.channel.send("No, You aren't!")
+			message.channel.send("No, You aren't!");
 		}
 	}
 	else if(message.content.startsWith(auth.prefix+"Am I a DM")) {
 		if(message.member.roles.get('596485222443515924')) {
-			message.channel.send("Yes, You are!")
+			message.channel.send("Yes, You are!");
 		}
 		else {
-			message.channel.send("No, You aren't!")
+			message.channel.send("No, You aren't!");
 		}
 	}
 	else if(message.content.startsWith(auth.prefix+"Am I a Player")) {
 		if(message.member.roles.get('596558352327114754')) {
-			message.channel.send("Yes, You are!")
+			message.channel.send("Yes, You are!");
 		}
 		else {
-			message.channel.send("No, You aren't!")
+			message.channel.send("No, You aren't!");
 		}
 	}
 });
