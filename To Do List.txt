@@ -1,5 +1,6 @@
 >put this whole thing on a Rasberry Pi
 
+>Rip on Clem
 >make everything lowercase when processed
 >finish the anidiots.guide on the bot it has some good stuff
 >Actually get working on the Strife part
