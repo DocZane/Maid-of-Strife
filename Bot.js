@@ -7,12 +7,11 @@ client.on("ready",() => {
 });
 
 client.on("message",(message) => {
-	if (!message.content.startsWith(auth.prefix) || message.author.bot)
-		return;
-	if (message.content.startsWith(auth.prefix+"kill")&& message.member.id == auth.ownerID) {
-		message.channel.send("I can't let you do that, Dave.")
-	}
-	else if (message.content.startsWith(auth.prefix+"ping")) {
+	if(!message.content.startsWith(auth.prefix) || message.author.bot) return;
+	if(message.content.startsWith(auth.prefix+"kill")&& message.member.id == auth.ownerID){
+		message.channel.send("I'm Sorry Dave, I'm Afraid I Can't Do That.")
+	} else
+	if(message.content.startsWith(auth.prefix+"ping")){
 		message.channel.send("Pong!");
 	}
 	else if (message.content.startsWith(auth.prefix+"pong")) {
