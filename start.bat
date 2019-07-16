@@ -1,2 +1,2 @@
-node Bot.js
+nodemon Bot.js
 pause
