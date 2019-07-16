@@ -1,0 +1,10 @@
+>put this whole thing on a Rasberry Pi
+
+>make everything lowercase when processed
+>finish the anidiots.guide on the bot it has some good stuff
+>Actually get working on the Strife part
+>Spawn Imps, Orges, and Basalisks
+>Health Bars
+>Stats
+>PR tracker
+>Small Dice roller (internal) ((Maybe respond to Avare for memes??))
