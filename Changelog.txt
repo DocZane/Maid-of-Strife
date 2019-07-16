@@ -1,6 +1,7 @@
 7/15/19:1.0.0: Created Maid of Strife! Only working command: >Ping.
 7/15/19:1.0.1: Added Pong, to go with Ping. Of course. Started >AmIaDM command to test role detection.
 it sucks.
-7/15/19:1.0.2: Redid all the code, changed the OG thing to Sample.js. Added Am I a DM/Player/Helper to 
+7/15/19:1.0.2: Redid all the code, changed the OG thing to Sample.js. Added Am I a DM/Player/Helper to
 test out role detection. got it working!! Also the >kill command, for those good Hal 9000 References and
 for specific member targeting with ID numbers.
+7/16/19:1.0.2: added lowercasing inputs and shortening the code.
