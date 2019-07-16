@@ -7,7 +7,7 @@ client.on("ready",() => {
 });
 
 client.on("message",(message) => {
-	if (message.author.bot)
+	if (!message.content.startsWith(auth.prefix) || message.author.bot)
 		return;
 
 	const args = message.content.slice(prefix.length).trim().split(/ +/g);
