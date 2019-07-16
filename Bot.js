@@ -27,9 +27,29 @@ client.on("message",(message) => {
 	else if (command === 'pong') {
 		message.channel.send("Ping!");
 	}
-	else if (command === 'strife'){
-		message.channel.send("'''What do you want to Strife?'''");
+	else if (command === 'strife') {
+		message.channel.send({embed: {
+				color: 3447003,
+				title: "What do you want to Strife?",
+
+				fields: [{
+						name: "Imp",
+						value: "test"
+					},
+					{
+						name: "Ogre",
+						value: "test"
+					},
+					{
+						name: "Basalisk",
+						value: "test"
+					}
+				]
+			}
+		});
 	}
+
+
 	/*else if (command === 'helper') {
 		if (message.member.roles.find(role => role.name === 'Helper')) {
 			message.channel.send("Yes, You are a helper!");
