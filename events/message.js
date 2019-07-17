@@ -1,4 +1,4 @@
-module.exports = (client, message) => {
+module.exports = (client, async message) => {
   // Ignore all bots
   if (message.author.bot) return;
 
