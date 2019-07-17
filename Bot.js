@@ -3,12 +3,11 @@ const client = new Discord.Client();
 const auth = require("../Maid of Strife Json dump/auth.json");
 
 
-
 client.on("ready",() => {
 	console.log("I am Ready!");
 });
 
-client.on("message",(message) => {
+client.on("message", async message => {
 	if (!message.content.startsWith(auth.prefix) || message.author.bot)
 		return;
 
@@ -27,6 +26,10 @@ client.on("message",(message) => {
 	else if (command === 'pong') {
 		message.channel.send("Ping!");
 	}
+	else if (command === "listemojis") {
+   	const emojiList = client.emojis.map((e, x) => (e) + ' | ' +e.name).join('\n');
+   	message.channel.send(emojiList);
+  }
 	else if (command === 'strife') {
 		const embed = new Discord.RichEmbed()
 			.setColor(3447003)
@@ -34,11 +37,18 @@ client.on("message",(message) => {
 			.addField("Imp", "test")
 			.addField("Ogre", "test")
 			.addField("Basilisk", "test");
-			const emoji = client.emojis.find(emoji => emoji.name === 'one');
-		message.channel.send({embed}).then(sentEmbed => {
-			sentEmbed.react(emoji.id);
-				//'🤔')
-		});
+			const imp = client.emojis.find(emoji => emoji.name === 'imp');
+			const ogre = client.emojis.find(emoji => emoji.name === 'ogre');
+			const basilisk = client.emojis.find(emoji => emoji.name === 'basilisk');
+			message.channel.send({embed})
+				.then(sentEmbed => {
+					setTimeout(function(){sentEmbed.react(imp.id)}, 500);
+					setTimeout(function(){sentEmbed.react(ogre.id)}, 1000);
+					setTimeout(function(){sentEmbed.react(basilisk.id)}, 1500);
+				});
+				//.catch (error) { console.error('dIdNt WoRk FuCkEr');
+
+
 		/*const one = client.emojis.find(emoji => emoji.name === 'one')
 		message.react(one.id);*/
 		/*message.react((client.emojis.find(emoji => emoji.name === 'two')).id);
