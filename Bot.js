@@ -1,11 +1,23 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const auth = require("../Maid of Strife Json dump/auth.json");
+const fs = require("fs");
+const Enmap = require("enmap");
 
 
 client.on("ready",() => {
 	console.log("I am Ready!");
 });
+
+fs.readdir("./events/", (err, files) => {
+  if (err) return console.error(err);
+  files.forEach(file => {
+    const event = require(`./events/${file}`);
+    let eventName = file.split(".")[0];
+    client.on(eventName, event.bind(null, client));
+  });
+});
+
 
 client.on("message", async message => {
 	if (!message.content.startsWith(auth.prefix) || message.author.bot)
@@ -45,6 +57,8 @@ client.on("message", async message => {
 					setTimeout(function(){sentEmbed.react(imp.id)}, 1000);
 					setTimeout(function(){sentEmbed.react(ogre.id)}, 2000);
 					setTimeout(function(){sentEmbed.react(basilisk.id)}, 3000);
+
+					sentEmbed.awaitReactions()
 				});
 				//.catch (error) { console.error('dIdNt WoRk FuCkEr');
 
