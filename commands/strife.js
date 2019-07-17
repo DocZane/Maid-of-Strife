@@ -18,10 +18,8 @@ exports.run = (client, message, args) => {
 
         const filter = (reaction, user) => {
           if([imp.name, ogre.name, basilisk.name].includes(reaction.emoji.name) && user.id === message.author.id) {
-            console.log("success");
             return true;
           }
-          console.log("fail");
           return false;
         }
 
