@@ -42,9 +42,9 @@ client.on("message", async message => {
 			const basilisk = client.emojis.find(emoji => emoji.name === 'basilisk');
 			message.channel.send({embed})
 				.then(sentEmbed => {
-					setTimeout(function(){sentEmbed.react(imp.id)}, 500);
-					setTimeout(function(){sentEmbed.react(ogre.id)}, 1000);
-					setTimeout(function(){sentEmbed.react(basilisk.id)}, 1500);
+					setTimeout(function(){sentEmbed.react(imp.id)}, 1000);
+					setTimeout(function(){sentEmbed.react(ogre.id)}, 2000);
+					setTimeout(function(){sentEmbed.react(basilisk.id)}, 3000);
 				});
 				//.catch (error) { console.error('dIdNt WoRk FuCkEr');
 

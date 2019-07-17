@@ -1,9 +1,7 @@
 >put this whole thing on a Rasberry Pi
 
 
-
 >finish the anidiots.guide on the bot it has some good stuff
->Actually get working on the Strife part
 >Spawn Imps, Orges, and Basalisks
 >Health Bars
 >Stats
