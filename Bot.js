@@ -4,7 +4,7 @@ const auth = require("../Maid of Strife Json dump/auth.json");
 const fs = require("fs");
 const Enmap = require("enmap");
 
-clent.auth = auth;
+client.auth = auth;
 
 client.on("ready",() => {
 	console.log("I am Ready!");
