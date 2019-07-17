@@ -5,3 +5,4 @@ it sucks.
 test out role detection. got it working!! Also the >kill command, for those good Hal 9000 References and
 for specific member targeting with ID numbers.
 7/16/19:1.0.2: added lowercasing inputs and shortening the code.
+7/16/19 ----------------- Github keeps a better track of all of this.

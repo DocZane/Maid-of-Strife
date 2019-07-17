@@ -1,6 +1,6 @@
+const Discord = require("discord.js");
 
 exports.run = (client, message, args) => {
-  const Discord = require("discord.js");
   const embed = new Discord.RichEmbed()
     .setColor(3447003)
     .setTitle("What do you want to Strife?")
@@ -16,6 +16,28 @@ exports.run = (client, message, args) => {
         setTimeout(function(){sentEmbed.react(ogre.id)}, 2000);
         setTimeout(function(){sentEmbed.react(basilisk.id)}, 3000);
 
-        //sentEmbed.awaitReactions()
+        const filter = (reaction, user) => {
+          if([imp.name, ogre.name, basilisk.name].includes(reaction.emoji.name) && user.id === message.author.id) {
+            console.log("success");
+            return true;
+          }
+          console.log("fail");
+          return false;
+        }
+
+        sentEmbed.awaitReactions(filter, {max: 1, time:60000, errors: ['time']})
+          .then(collected => {
+            const reaction = collected.first();
+            if (reaction.emoji === imp)
+              sentEmbed.reply('imp selected');
+            else if (reaction.emoji === ogre)
+              sentEmbed.reply('ogre selected');
+            else
+              sentEmbed.reply('basilisk selected');
+          }
+        )
+          .catch(collected => {
+            sentEmbed.reply("u broked it boi");
+          });
       });
 }
