@@ -1,4 +1,6 @@
+
 exports.run = (client, message, args) => {
+  const Discord = require("discord.js");
   const embed = new Discord.RichEmbed()
     .setColor(3447003)
     .setTitle("What do you want to Strife?")
@@ -14,6 +16,6 @@ exports.run = (client, message, args) => {
         setTimeout(function(){sentEmbed.react(ogre.id)}, 2000);
         setTimeout(function(){sentEmbed.react(basilisk.id)}, 3000);
 
-        sentEmbed.awaitReactions()
+        //sentEmbed.awaitReactions()
       });
 }

@@ -2,7 +2,7 @@
 
 
 >finish the anidiots.guide on the bot it has some good stuff
->Spawn Imps, Orges, and Basalisks
+>Spawn Imps, Ogres, and Basalisks
 >Health Bars
 >Stats
 >PR tracker
