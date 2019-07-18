@@ -32,10 +32,14 @@ exports.run = (client, message, args) => {
               sentEmbed.reply('ogre selected');
             else
               sentEmbed.reply('basilisk selected');
+            sentEmbed.delete();
+
+
           }
         )
           .catch(collected => {
-            sentEmbed.reply("u broked it boi");
+            sentEmbed.reply("u broked it boi"); 
+            return;
           });
       });
 }
