@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-const Fight = require(`../subcommands/fight.js`);
+const Fight = require(`../modules/fight.js`);
 
 exports.run = (client, message, args) => {
   const embed = new Discord.RichEmbed()
@@ -27,14 +27,21 @@ exports.run = (client, message, args) => {
         sentEmbed.awaitReactions(filter, {max: 1, time:60000, errors: ['time']})
           .then(collected => {
             const reaction = collected.first();
-            if (reaction.emoji === imp)
+
+            if (reaction.emoji === imp) {
               sentEmbed.reply('imp selected');
-            else if (reaction.emoji === ogre)
+              choice = 0;
+            }
+            else if (reaction.emoji === ogre) {
               sentEmbed.reply('ogre selected');
-            else
+              choice = 1;
+            }
+            else {
               sentEmbed.reply('basilisk selected');
+              choice = 2;
+            }
             sentEmbed.delete();
-            Fight.fight(sentEmbed);
+            Fight.fight(choice);
           }
         );
           /*.catch(collected => {
