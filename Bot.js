@@ -3,6 +3,8 @@ const client = new Discord.Client();
 const auth = require("../Maid of Strife Json dump/auth.json");
 const fs = require("fs");
 const Enmap = require("enmap");
+const Fight = require("./subcommands/fight.js");
+
 
 client.auth = auth;
 

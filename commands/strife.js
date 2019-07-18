@@ -1,4 +1,5 @@
 const Discord = require("discord.js");
+const Fight = require(`../subcommands/fight.js`);
 
 exports.run = (client, message, args) => {
   const embed = new Discord.RichEmbed()
@@ -33,13 +34,11 @@ exports.run = (client, message, args) => {
             else
               sentEmbed.reply('basilisk selected');
             sentEmbed.delete();
-
-
+            Fight.fight(sentEmbed);
           }
-        )
-          .catch(collected => {
-            sentEmbed.reply("u broked it boi"); 
-            return;
-          });
+        );
+          /*.catch(collected => {
+            sentEmbed.reply("u broked it boi");
+          });*/
       });
 }

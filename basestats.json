@@ -1,0 +1,4 @@
+{
+  enemytype: (health, SD, BD, STR, FOR, AGL),
+  Imp: (15,4,'1d4')
+}
