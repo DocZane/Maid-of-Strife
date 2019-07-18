@@ -7,13 +7,10 @@
 
 >finish the anidiots.guide on the bot it has some good stuff
 
->Turn clicking the reactions into another menu. There will be so many menus.
->just start with 1 of the selected enemy, add more to choose an number, go back,
-and add more of any other kind of enemy.
-
-
->Spawn Imps, Ogres, and Basalisks
+>add more to choose an number, go back, and add more of any other kind of enemy.
 >Health Bars
->Stats
+>finish stats
 >PR tracker
+>grists?
+
 >Small Dice roller (internal) ((Maybe respond to Avare for memes??))

@@ -3,6 +3,7 @@ const Fight = require(`../modules/fight.js`);
 
 exports.run = (client, message, args) => {
   const embed = new Discord.RichEmbed()
+    .setAuthor(message.author.username, message.author.avatarURL)
     .setColor(3447003)
     .setTitle("What do you want to Strife?")
     .addField("Imp", "test")
@@ -29,21 +30,19 @@ exports.run = (client, message, args) => {
             const reaction = collected.first();
 
             if (reaction.emoji === imp) {
-              sentEmbed.reply('imp selected');
               choice = 0;
             }
             else if (reaction.emoji === ogre) {
-              sentEmbed.reply('ogre selected');
               choice = 1;
             }
             else {
-              sentEmbed.reply('basilisk selected');
               choice = 2;
             }
             sentEmbed.delete();
-            Fight.fight(choice);
+            Fight.fight(choice, message, client);
           }
         );
+        message.delete();
           /*.catch(collected => {
             sentEmbed.reply("u broked it boi");
           });*/
