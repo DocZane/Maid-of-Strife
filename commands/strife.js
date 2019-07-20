@@ -6,9 +6,9 @@ exports.run = (client, message, args) => {
     .setAuthor(message.author.username, message.author.avatarURL)
     .setColor(3447003)
     .setTitle("What do you want to Strife?")
-    .addField("Imp", "test")
-    .addField("Ogre", "test")
-    .addField("Basilisk", "test");
+    .addField("Imp", "Any Tier")
+    .addField("Ogre", "Teir 1 and up")
+    .addField("Basilisk", "Teir 2 and up");
     const imp = client.emojis.find(emoji => emoji.name === 'imp');
     const ogre = client.emojis.find(emoji => emoji.name === 'ogre');
     const basilisk = client.emojis.find(emoji => emoji.name === 'basilisk');

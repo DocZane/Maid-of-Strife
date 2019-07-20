@@ -1,5 +1,6 @@
 const Enemies = require("./enemy.js");
 const Discord = require("discord.js");
+//const HBar = require("./hBar.js");
 
 exports.fight = function(choice, message, client) {
 
