@@ -17,6 +17,7 @@ exports.fight = function(choice, message, client) {
     .addField("HP", enemy1.hp)
     .addField("SD", enemy1.sd)
     .addField("BD", enemy1.bd)
+    .addField("Initivate Roll")
     .setThumbnail(
       (client.emojis.find
         (emoji => emoji.name === (enemy1.type).toLowerCase()).url));

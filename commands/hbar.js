@@ -1,4 +1,6 @@
-const Fight = require("../modules/fight.js");
+//Also unfinished for now, should really be in Modules and crashes bot if ran alone
+
+/*const Fight = require("../modules/fight.js");
 
 exports.run = (client, message, args) => {
 var curHP= 15;
@@ -13,4 +15,4 @@ if (curHP<0){
   message.channel.send(hp)
   message.channel.send(reamainingHP)
   }
-}
+}*/
