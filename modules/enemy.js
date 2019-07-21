@@ -7,9 +7,9 @@ exports.Imp = function(currentPR) {
   this.hp = ImpStats.hp;
   this.sd = ImpStats.sd;
   this.bd = ImpStats.bd;
-  this.str = Impstats.str;
-  this.for = Impstats.for;
-  this.agl = Impstats.agl;
+  this.str = ImpStats.str;
+  this.for = ImpStats.for;
+  this.agl = ImpStats.agl;
 }
 
 exports.Ogre = function(currentPR) {
@@ -18,9 +18,9 @@ exports.Ogre = function(currentPR) {
   this.hp = OgreStats.hp;
   this.sd = OgreStats.sd;
   this.bd = OgreStats.bd;
-  this.str = Ogrestats.str;
-  this.for = Ogrestats.for;
-  this.agl = Ogrestats.agl;
+  this.str = OgreStats.str;
+  this.for = OgreStats.for;
+  this.agl = OgreStats.agl;
 }
 
 exports.Basilisk = function(currentPR) {
@@ -29,7 +29,7 @@ exports.Basilisk = function(currentPR) {
   this.hp = BasiliskStats.hp;
   this.sd = BasiliskStats.sd;
   this.bd = BasiliskStats.bd;
-  this.str = Basiliskstats.str;
-  this.for = Basiliskstats.for;
-  this.agl = Basiliskstats.agl;
+  this.str = BasiliskStats.str;
+  this.for = BasiliskStats.for;
+  this.agl = BasiliskStats.agl;
 }
