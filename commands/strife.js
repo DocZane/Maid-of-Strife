@@ -1,10 +1,13 @@
 const Discord = require("discord.js");
 const Fight = require(`../modules/fight.js`);
 
+
 exports.run = (client, message, args) => {
+  let color = message.member.displayHexColor;
+  if (color == '#000000') color = message.member.hoistRole.hexColor;
   const embed = new Discord.RichEmbed()
     .setAuthor(message.author.username, message.author.avatarURL)
-    .setColor(3447003)
+    .setColor(color)
     .setTitle("What do you want to Strife?")
     .addField("Imp", "Any Tier")
     .addField("Ogre", "Teir 1 and up")

@@ -11,14 +11,15 @@ exports.fight = function(choice, message, client) {
     enemy1 = new Enemies.Ogre(0);
   else
     enemy1 = new Enemies.Basilisk(0);
-
+    let color = message.member.displayHexColor;
+    if (color == '#000000') color = message.member.hoistRole.hexColor;
   const embed = new Discord.RichEmbed()
     .setAuthor(message.author.username, message.author.avatarURL)
-    .setColor(3447003)
+    .setColor(color)
     .setTitle(enemy1.header + " " + enemy1.type + " approached you!")
     .addField("HP", enemy1.hp)
     .addField("Avoidance Value:",10 + enemy1.agl)
-    .addField("Initiative Roll",Roll.roll(20)+enemy1.agl)
+    .addField("Initiative Roll",Roll.roll(20) + enemy1.agl)
     .addField("Roll Initiative! Is it higher than the enemy?","--------")
     .setThumbnail(
       (client.emojis.find
