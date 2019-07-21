@@ -52,6 +52,6 @@ exports.fight = function(choice, message, client) {
       });
 });
 
-
+message.channel.send(example);
 
 }
