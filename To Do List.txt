@@ -1,9 +1,10 @@
->put this whole thing on a Rasberry Pi
 
 
 
 
 
+>fix >emotelist since right now there are too many emotes at it will only get
+worse
 
 >finish the anidiots.guide on the bot it has some good stuff
 
@@ -12,5 +13,8 @@
 >finish stats
 >PR tracker
 >grists?
+>add the actual fight choices
+>man there are so many little effects to keep in mind
+>just start with receiving damage, dealing damage, and rolling initiative
 
 >Small Dice roller (internal) ((Maybe respond to Avare for memes??))

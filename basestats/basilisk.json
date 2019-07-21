@@ -3,5 +3,8 @@
 "type": "Basilisk",
 "hp": 150,
 "sd": 30,
-"bd": "2d8"
+"bd": "2d8",
+"str": 1,
+"for": 1,
+"agl": 4
 }
