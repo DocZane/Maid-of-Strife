@@ -38,12 +38,15 @@ exports.fight = function(choice, message, client) {
         const reaction = collected.first();
 
         if (reaction.emoji.name === '✅') {
-          choice = 0;
-        message.channel.send("Check.");
+    const embed = new Discord.RichEmbed()
+      .setAuthor(message.author.username, message.author.avatarURL)
+      .setColor(color)      message.channel.send("Check.");
+
         }
         else {
-          choice = 1;
-        message.channel.send("X.");
+    const embed = new Discord.RichEmbed()
+      .setAuthor(message.author.username, message.author.avatarURL)
+      .setColor(color)
         }
         sentEmbed.delete();
       })
