@@ -37,27 +37,30 @@ exports.fight = function(choice, message, client) {
       .then(collected => {
         const reaction = collected.first();
 
-        if (reaction.emoji.name === '✅') {
-    const embed = new Discord.RichEmbed()
+    if (reaction.emoji.name === '✅') {
+    const embed2 = new Discord.RichEmbed()
       .setAuthor(message.author.username, message.author.avatarURL)
       .setColor(color)
       .addField("Enemy AV:",10+enemy1.agl)
       .addField("Your Turn!","Enter your damage if you hit, or press ➡ if you missed!")
       .addField("Form:",">[Damage Dealt]");
+        message.channel.send({embed2});
         }
         else {
-    const embed = new Discord.RichEmbed()
+
+    const embed2 = new Discord.RichEmbed()
       .setAuthor(message.author.username, message.author.avatarURL)
       .setColor(color)
       .addField("Attack Roll:",Roll.Roll(20) + enemy1.str)
       .addField("Does it hit you?","Hit ✅ for yes and ❌ for no.");
+        message.channel.send({embed2});
         }
         sentEmbed.delete();
-        message.channel.send({embed})
       })
       .catch(collected => {
         console.log ("someone fucked up something.");
       });
+
 });
 
 
