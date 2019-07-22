@@ -40,15 +40,20 @@ exports.fight = function(choice, message, client) {
         if (reaction.emoji.name === '✅') {
     const embed = new Discord.RichEmbed()
       .setAuthor(message.author.username, message.author.avatarURL)
-      .setColor(color)      
-
+      .setColor(color)
+      .addField("Enemy AV:",10+enemy1.agl)
+      .addField("Your Turn!","Enter your damage if you hit, or press ➡ if you missed!")
+      .addField("Form:",">[Damage Dealt]");
         }
         else {
     const embed = new Discord.RichEmbed()
       .setAuthor(message.author.username, message.author.avatarURL)
       .setColor(color)
+      .addField("Attack Roll:",Roll.Roll(20) + enemy1.str)
+      .addField("Does it hit you?","Hit ✅ for yes and ❌ for no.");
         }
         sentEmbed.delete();
+        message.channel.send({embed})
       })
       .catch(collected => {
         console.log ("someone fucked up something.");
