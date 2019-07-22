@@ -40,7 +40,7 @@ exports.fight = function(choice, message, client) {
         if (reaction.emoji.name === '✅') {
     const embed = new Discord.RichEmbed()
       .setAuthor(message.author.username, message.author.avatarURL)
-      .setColor(color)      message.channel.send("Check.");
+      .setColor(color)      
 
         }
         else {
