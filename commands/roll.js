@@ -30,9 +30,9 @@ var num = 3;
 function roll(die){
 num = (Math.floor(Math.random()*die)+1);
    if (num == 20){
-     rollOut = rollOut + " Crit Sucess!";
+     num = num + " Crit Sucess!";
    } else if (num == 1){
-     rollOut = rollOut + " Crit Fail!";
+     num = num + " Crit Fail!";
    }
     }
 roll(die);
