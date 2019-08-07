@@ -2,6 +2,7 @@ const Enemies = require("./enemy.js");
 const Discord = require("discord.js");
 const Roll = require("../commands/roll.js");
 const Brawl = require("./brawl.js");
+const Hbar = require("./hbar.js");
 
 exports.fight = function(choice, message, client) {
 
@@ -17,7 +18,7 @@ exports.fight = function(choice, message, client) {
     .setAuthor(message.author.username, message.author.avatarURL)
     .setColor(color)
     .setTitle(enemy1.header + " " + enemy1.type + " approached you!")
-    .addField("HP", enemy1.hp)
+    .addField("HP", Hbar.hbar(choice,message,client))
     .addField("Avoidance Value:",10 + enemy1.agl)
     .addField("Initiative Roll",Roll.roll(20) + enemy1.agl)
     .addField("Roll Initiative! Is it higher than the enemy?","--------")
@@ -39,11 +40,11 @@ exports.fight = function(choice, message, client) {
 
         if (reaction.emoji.name === '✅') {
           message.channel.send("check");
-          Brawl.brawl(message, client, enemy1, true, color);
+          Brawl.brawl(choice, message, client, enemy1, true, color);
         }
         else {
           message.channel.send("cross");
-          Brawl.brawl(message, client, enemy1, false, color);
+          Brawl.brawl(choice, message, client, enemy1, false, color);
         }
         sentEmbed.delete();
       })
