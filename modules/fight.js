@@ -39,17 +39,15 @@ exports.fight = function(choice, message, client) {
         const reaction = collected.first();
 
         if (reaction.emoji.name === '✅') {
-          message.channel.send("check");
           Brawl.brawl(choice, message, client, enemy1, true, color);
         }
         else {
-          message.channel.send("cross");
           Brawl.brawl(choice, message, client, enemy1, false, color);
         }
         sentEmbed.delete();
       })
       .catch(collected => {
-        console.log ("someone fucked up something.");
+        console.log ("someone fucked up something in Fight.");
       });
 
   });

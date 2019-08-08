@@ -22,6 +22,38 @@ exports.brawl = function(choice, message, client, enemy1, playerFirst, color) {
        .setColor(color)
        .addField("Attack Roll:",Roll.roll(20) + enemy1.str)
        .addField("Does it hit you?","Hit Check for yes and X for no.");
-    message.channel.send({embed});
+    message.channel.send({embed})
+
+    .then(sentEmbed => {
+      setTimeout(function(){sentEmbed.react("✅")}, 1000);
+      setTimeout(function(){sentEmbed.react("❌")}, 2000);
+
+      const filter = (reaction, user) => {
+        return['✅', '❌'].includes(reaction.emoji.name) && user.id === message.author.id;
+      };
+
+      sentEmbed.awaitReactions(filter, {max: 1, time:60000, errors: ['time']})
+        .then(collected => {
+          const reaction = collected.first();
+
+          if (reaction.emoji.name === '✅') {
+            const embed = new Discord.RichEmbed()
+               .setAuthor(message.author.username, message.author.avatarURL)
+               .setColor(color)
+               .addField("Damage Dealt to you:",Roll.roll(enemy1.bd)+enemy1.sd)
+               .addField("Your options are:","Abscond","Fight");
+               message.channel.send({embed})
+          }
+          else {
+
+          }
+          sentEmbed.delete();
+        })
+        .catch(collected => {
+          console.log ("someone fucked up something in Brawl.");
+        });
+
+    });
+
   }
 }
