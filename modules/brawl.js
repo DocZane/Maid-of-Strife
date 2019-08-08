@@ -11,7 +11,10 @@ exports.brawl = function(choice, message, client, enemy1, playerFirst, color) {
         .setColor(color)
         .addField("Enemy AV:",10+enemy1.agl)
         .addField("Your Turn!","Enter your damage if you hit, or press ➡ if you missed!")
-        .addField("Form:",">[Damage Dealt]");
+        .addField("Form:",">[Damage Dealt]")
+        .setThumbnail(
+          (client.emojis.find
+            (emoji => emoji.name === (enemy1.type).toLowerCase()).url));
       message.channel.send({embed})
       .then(sentEmbed => {
         setTimeout(function(){sentEmbed.react("➡")}, 1000);
@@ -47,9 +50,12 @@ exports.brawl = function(choice, message, client, enemy1, playerFirst, color) {
     const embed = new Discord.RichEmbed()
        .setAuthor(message.author.username, message.author.avatarURL)
        .setColor(color)
-       .addField("Enemy's Turn!")
+       .addField("Enemy's Turn!","")
        .addField("Attack Roll:",Roll.roll(20) + enemy1.str)
-       .addField("Does it hit you?","Hit Check for yes and X for no.");
+       .addField("Does it hit you?","Hit Check for yes and X for no.")
+       .setThumbnail(
+         (client.emojis.find
+           (emoji => emoji.name === (enemy1.type).toLowerCase()).url));
     message.channel.send({embed})
 
     .then(sentEmbed => {
@@ -69,7 +75,10 @@ exports.brawl = function(choice, message, client, enemy1, playerFirst, color) {
                .setAuthor(message.author.username, message.author.avatarURL)
                .setColor(color)
                .addField("Damage Dealt to you:",Roll.roll(enemy1.bd)+enemy1.sd)
-               .addField("Your options are:","Abscond and Fight");
+               .addField("Your options are:","Abscond and Fight")
+               .setThumbnail(
+                 (client.emojis.find
+                   (emoji => emoji.name === (enemy1.type).toLowerCase()).url));
                message.channel.send({embed});
 
           }
@@ -86,4 +95,4 @@ exports.brawl = function(choice, message, client, enemy1, playerFirst, color) {
     };
     Enemy();
   };
-}
+};
