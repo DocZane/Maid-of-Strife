@@ -24,23 +24,23 @@ exports.brawl = function(message, client, enemy1, playerFirst, color, choice) {
         const filter = (reaction, user) => {
           return['➡'].includes(reaction.emoji.name) && user.id === message.author.id;
         };
-      if(damn){
         const prefix = '>';
         client.on('message', message => {
-          if (message.content.indexOf(prefix) === 0) {
+          if (message.content.indexOf(prefix) === 0 && damn) {
             const args = message.content.slice(prefix.length).trim().split(/ +/g);
             message.channel.send('Test works I think? ' + args[0]);
+            sentEmbed.delete();
             damn = false;
             return
           }
         });
-      }
         sentEmbed.awaitReactions(filter, {max: 1, time:60000, errors: ['time']})
           .then(collected => {
             const reaction = collected.first();
-            if (reaction.emoji.name === '➡') {
+            if (reaction.emoji.name === '➡' && damn) {
               message.channel.send('No, it doesn\'t!');
               damn = false;
+              sentEmbed.delete();
               return;
             }
 
