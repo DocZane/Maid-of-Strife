@@ -1,10 +1,12 @@
 const Enemies = require("./enemy.js");
 const Discord = require("discord.js");
 const Roll = require("../commands/roll.js");
+const Message = require("../events/message.js");
 
 exports.brawl = function(message, client, enemy1, playerFirst, color, choice) {
 
   if (playerFirst){
+    var damn = true;
       const embed = new Discord.RichEmbed()
         .setAuthor(message.author.username, message.author.avatarURL)
         .setColor(color)
@@ -16,29 +18,40 @@ exports.brawl = function(message, client, enemy1, playerFirst, color, choice) {
             (emoji => emoji.name === (enemy1.type).toLowerCase()).url));
       message.channel.send({embed})
       .then(sentEmbed => {
-        setTimeout(function(){sentEmbed.react("➡")}, 1000);
+        sentEmbed.react("➡")
+        .catch(() => console.log("fuk u"));
 
         const filter = (reaction, user) => {
           return['➡'].includes(reaction.emoji.name) && user.id === message.author.id;
         };
-
+      if(damn){
+        const prefix = '>';
+        client.on('message', message => {
+          if (message.content.indexOf(prefix) === 0) {
+            const args = message.content.slice(prefix.length).trim().split(/ +/g);
+            message.channel.send('Test works I think? ' + args[0]);
+            damn = false;
+            return
+          }
+        });
+      }
         sentEmbed.awaitReactions(filter, {max: 1, time:60000, errors: ['time']})
           .then(collected => {
             const reaction = collected.first();
-
             if (reaction.emoji.name === '➡') {
+              message.channel.send('No, it doesn\'t!');
+              damn = false;
               return;
             }
-            else {
 
-            }
-            sentEmbed.delete();
+              sentEmbed.delete();
           })
           .catch(collected => {
             console.log ("someone fucked up something in Brawl-Player.");
           });
-      });
+    });
   }
+
   else {
     const embed = new Discord.RichEmbed()
       .setAuthor(message.author.username, message.author.avatarURL)
@@ -52,8 +65,9 @@ exports.brawl = function(message, client, enemy1, playerFirst, color, choice) {
     message.channel.send({embed})
     .then(sentEmbed => {
 
-      setTimeout(function(){sentEmbed.react("✅")}, 1000);
-      setTimeout(function(){sentEmbed.react("❌")}, 2000);
+      sentEmbed.react("✅")
+      .then(() => sentEmbed.react("❌"))
+      .catch(() => console.log("fuk u"));
 
       const filter = (reaction, user) => {
         return['✅', '❌'].includes(reaction.emoji.name) && user.id === message.author.id;

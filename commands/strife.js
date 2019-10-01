@@ -17,9 +17,12 @@ exports.run = (client, message, args) => {
     const basilisk = client.emojis.find(emoji => emoji.name === 'basilisk');
     message.channel.send({embed})
       .then(sentEmbed => {
-        setTimeout(function(){sentEmbed.react(imp.id)}, 1000);
-        setTimeout(function(){sentEmbed.react(ogre.id)}, 2000);
-        setTimeout(function(){sentEmbed.react(basilisk.id)}, 3000);
+        sentEmbed.react(imp.id)
+        .then(() => sentEmbed.react(ogre.id))
+        .then(() => sentEmbed.react(basilisk.id))
+        .catch(error => {
+          console.log("Its probably fine in Strife.");
+        });
 
         const filter = (reaction, user) => {
           if([imp.name, ogre.name, basilisk.name].includes(reaction.emoji.name) && user.id === message.author.id) {
