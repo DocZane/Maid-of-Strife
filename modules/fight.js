@@ -39,16 +39,16 @@ exports.fight = function(choice, message, client) {
         const reaction = collected.first();
 
         if (reaction.emoji.name === '✅') {
-          Brawl.brawl(choice, message, client, enemy1, true, color);
+          Brawl.brawl(message, client, enemy1, true, color, choice);
         }
         else {
-          Brawl.brawl(choice, message, client, enemy1, false, color);
+          Brawl.brawl(message, client, enemy1, false, color, choice);
         }
         sentEmbed.delete();
-      })
-      .catch(collected => {
-        console.log ("someone fucked up something in Fight.");
       });
+      /*.catch(collected => {
+        console.log ("someone fucked up something in Fight.");*/
+      //});
 
   });
 }
