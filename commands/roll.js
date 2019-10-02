@@ -14,11 +14,6 @@ function roll(die){
  } else {
    message.delete();
  num = (Math.floor(Math.random()*die)+1);
-   if (num == die){
-     num = num + " Crit Sucess!";
-   } else if (num == 1){
-     num = num + " Crit Fail!";
-      }
     }
   }
   roll(die);
