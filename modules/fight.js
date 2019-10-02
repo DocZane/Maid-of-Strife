@@ -5,7 +5,7 @@ const Brawl = require("./brawl.js");
 const Hbar = require("./hbar.js");
 
 exports.fight = function(choice, message, client) {
-
+var dmg = 0;
   if (choice==0)
     enemy1 = new Enemies.Imp(0);
   else if (choice==1)
@@ -18,7 +18,7 @@ exports.fight = function(choice, message, client) {
     .setAuthor(message.author.username, message.author.avatarURL)
     .setColor(color)
     .setTitle(enemy1.header + " " + enemy1.type + " approached you!")
-    .addField("HP", Hbar.hbar(choice,message,client))
+    .addField("HP", Hbar.hbar(enemy1,message,client))
     .addField("Avoidance Value:",10 + enemy1.agl)
     .addField("Initiative Roll",Roll.roll(20) + enemy1.agl)
     .addField("Roll Initiative! Is it higher than the enemy?","--------")
@@ -27,8 +27,9 @@ exports.fight = function(choice, message, client) {
         (emoji => emoji.name === (enemy1.type).toLowerCase()).url));
   message.channel.send({embed})
   .then(sentEmbed => {
-    setTimeout(function(){sentEmbed.react("✅")}, 1000);
-    setTimeout(function(){sentEmbed.react("❌")}, 2000);
+    sentEmbed.react("✅")
+    .then(() => sentEmbed.react("❌"))
+    .catch(() => console.log("fuk u"));
 
     const filter = (reaction, user) => {
       return['✅', '❌'].includes(reaction.emoji.name) && user.id === message.author.id;
@@ -39,16 +40,16 @@ exports.fight = function(choice, message, client) {
         const reaction = collected.first();
 
         if (reaction.emoji.name === '✅') {
-          Brawl.brawl(message, client, enemy1, true, color, choice);
+          Brawl.brawl(message, client, enemy1, true, color, dmg);
         }
         else {
-          Brawl.brawl(message, client, enemy1, false, color, choice);
+          Brawl.brawl(message, client, enemy1, false, color, dmg);
         }
         sentEmbed.delete();
+      })
+      .catch(collected => {
+        console.log ("someone fucked up something in Fight.");
       });
-      /*.catch(collected => {
-        console.log ("someone fucked up something in Fight.");*/
-      //});
 
   });
 }
