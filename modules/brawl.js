@@ -34,6 +34,7 @@ exports.brawl = function(message, client, enemy1, playerFirst, color, dmg) {
               message.channel.send("Try a number this time!");
             }
             else{
+              message.delete();
               dmg=args[0];
               Loop.loop(message, client, enemy1, true, true, color, dmg);
               damn = false;
