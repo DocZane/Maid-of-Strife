@@ -3,6 +3,7 @@ const Discord = require("discord.js");
 const Brawl = require("./brawl.js");
 const Roll = require('../commands/roll.js');
 const Hbar = require("./hbar.js");
+const Loot = require('./loot.js');
 
 exports.loop = function(message, client, enemy1, hitTrue, yourTurn, color, dmg) {
 
@@ -58,7 +59,7 @@ if(hitTrue && !yourTurn){
       .setColor(color)
       .addField("HP:","Dead!")
       .addField("You won!","____")
-      .addField("Rewards:","None yet, that's really hard (no im just lazy).")
+      .addField("Rewards:",Loot.loot(message,client,enemy1))
       .setThumbnail(
         (client.emojis.find
           (emoji => emoji.name === (enemy1.type).toLowerCase()).url));

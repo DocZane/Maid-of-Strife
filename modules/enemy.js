@@ -11,6 +11,9 @@ exports.Imp = function(currentPR) {
   this.str = ImpStats.str;
   this.for = ImpStats.for;
   this.agl = ImpStats.agl;
+  this.xp = ImpStats.xp;
+  this.grist = ImpStats.grist;
+  this.vit = ImpStats.vit;
 }
 
 exports.Ogre = function(currentPR) {
@@ -23,6 +26,9 @@ exports.Ogre = function(currentPR) {
   this.str = OgreStats.str;
   this.for = OgreStats.for;
   this.agl = OgreStats.agl;
+  this.xp = OgreStats.xp;
+  this.grist = OgreStats.grist;
+  this.vit = OgreStats.vit;
 }
 
 exports.Basilisk = function(currentPR) {
@@ -35,4 +41,7 @@ exports.Basilisk = function(currentPR) {
   this.str = BasiliskStats.str;
   this.for = BasiliskStats.for;
   this.agl = BasiliskStats.agl;
+  this.xp = BasiliskStats.xp;
+  this.grist = BasiliskStats.grist;
+  this.vit = BasiliskStats.vit;
 }

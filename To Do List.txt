@@ -5,14 +5,7 @@
 i never have to work with two bots online at the same time again dear god)
 >fix >emotelist since right now there are too many emotes at it will only get
 worse
->fix dice roller so it doesn't ignore mods on crit (since the crit message makes
-it a string not a number)
->figure out how to make the next embeded message work
 >add more to choose an number, go back, and add more of any other kind of enemy.
->Health Bars
->finish stats
 >PR tracker
 >grists?
->add the actual fight choices
 >man there are so many little effects to keep in mind
->just start with receiving damage, dealing damage, and rolling initiative

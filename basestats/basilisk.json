@@ -1,11 +1,14 @@
 {
 "header": "A",
 "type": "Basilisk",
-"chp": 150,
-"hp": 150,
+"chp": 100,
+"hp": 100,
 "sd": 30,
 "bd": "2d8",
 "str": 1,
 "for": 1,
-"agl": 4
+"agl": 4,
+"xp":150,
+"grist":20000,
+"vit":75
 }
