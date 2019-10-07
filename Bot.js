@@ -8,7 +8,7 @@ const Enmap = require("enmap");
 client.auth = auth;
 
 client.on("ready",() => {
-	client.user.setActivity("Tablestuck in "+ client.guilds.size +" servers!");
+	client.user.setActivity(">help in "+ client.guilds.size +" servers!");
 	console.log("I am Ready!");
 });
 
