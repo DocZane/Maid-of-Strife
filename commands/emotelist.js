@@ -5,8 +5,11 @@ exports.run = (client, message, args) => {
     var elist = client.emojis.map((e, x) => (e) + ' | ' +e.name);
     var lennum = elist.length
     var remaining = 2000;
-    let page = 1;
-    let pages =[];
+    var pages =[];
+    if ( args[0] === "count"){
+      message.channel.send("I know "+lennum+" Emotes! Oh Dear!")
+      return;
+    };
       for (i=0; i<lennum+1; i++){
         remaining = remaining-elist.length
         console.log(remaining);

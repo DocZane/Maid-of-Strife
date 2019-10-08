@@ -27,18 +27,21 @@ exports.brawl = function(message, client, enemy1, playerFirst, color, dmg) {
           return['➡'].includes(reaction.emoji.name) && user.id === message.author.id;
         };
         const prefix = '>';
+        const player = message.author.username;
         client.on('message', message => {
           if (message.content.indexOf(prefix) === 0 && damn) {
+            if(message.author.username= player){
             const args = message.content.slice(prefix.length).trim().split(/ +/g);
-            if (isNaN(args[0])){
-              message.channel.send("Try a number this time!");
-            }
+              if (isNaN(args[0])){
+                message.channel.send("Try a number this time!");
+              }
             else{
               message.delete();
               dmg=args[0];
               Loop.loop(message, client, enemy1, true, true, color, dmg);
               damn = false;
               sentEmbed.delete();
+            }
           }
             return
         }
