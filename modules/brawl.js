@@ -6,7 +6,6 @@ const Loop = require("./loop.js");
 const Hbar = require("./hbar.js");
 
 exports.brawl = function(message, client, enemy1, playerFirst, color, dmg) {
-
   if (playerFirst){
     var damn = true;
       const embed = new Discord.RichEmbed()

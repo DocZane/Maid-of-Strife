@@ -1,18 +1,21 @@
 const Discord = require("discord.js");
 
 exports.run = (client, message, args) => {
-
   let color = message.member.displayHexColor;
   if (color == '#000000') color = message.member.hoistRole.hexColor;
+//defines isDM as a role named DM
   let isDM = message.guild.roles.find(r => r.name === 'DM');
+//checks if the server has a role named DM
   if (!isDM){
     message.channel.send("You need to create a DM role first!")
     return}
+    //makes it so not DMs cant change or view the config
     if(!message.member.roles.find(r => r.name === "DM")){
       message.channel.send("Sorry, You aren't a DM!");
       return
     }
     else{
+      //checks if there were any other arguments, and if not, prints the base config message.
       if(!args[0]){
       const embed = new Discord.RichEmbed()
       .setAuthor(message.author.username, message.author.avatarURL)

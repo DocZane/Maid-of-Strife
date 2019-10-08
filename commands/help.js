@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 
 
-
+//important help page for the users
 exports.run = (client, message, args) => {
   let color = message.member.displayHexColor;
   if (color == '#000000') color = message.member.hoistRole.hexColor;
@@ -9,6 +9,8 @@ exports.run = (client, message, args) => {
   const embed = new Discord.RichEmbed()
     .setAuthor(message.author.username, message.author.avatarURL)
     .setColor(color)
+    //checks if there are any arguments, if there aren't any, sets the embed to
+    //print the basic list of commands.
   if (!args[0]){
     embed.setTitle("Command List")
     embed.addField("**>Strife**", "The Bread and Butter of this bot, lets you Strife.")
@@ -24,7 +26,9 @@ exports.run = (client, message, args) => {
     embed.addField(">Roll [Die]", "A really bad roll bot, mostly for internal use.")
     embed.addField(">Yes", "Yes.");
   }
+  //information for the command >config
   else if(args[0]==="config"){
+    //checks if the person sending the message is a DM
     if(message.member.roles.find(r => r.name === "DM")){
     embed.addField("strifelimitperday:","Sets the number of strifes a player can do in a day. WIP.")
     embed.addField("enemytierlock:","if true, a player can't fight an underling with a higher level than their teir.\n aka. a teir 1 player cant fight a basilisk(tier 2). WIP.)")
@@ -33,8 +37,10 @@ exports.run = (client, message, args) => {
     embed.addField("prcollection","how PR is logged. WIP.")
     embed.addField("prmethod","how PR effects enemies. WIP.")
     }
+    //return message if the person who uses >help config isnt a DM
     else embed.setTitle("sorry, you need to be a DM to execute this command!")
   } else {
+    //catchall if there is an argument for >help that doesn't exist
     embed.setTitle("Sorry, I don't recognise that atribute! type >help for more info.")
   }
 message.channel.send({embed});

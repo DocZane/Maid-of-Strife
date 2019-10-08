@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-
+//Press F to pay respects
 exports.run = (client, message, args) => {
   let color = message.member.displayHexColor;
   if (color == '#000000') color = message.member.hoistRole.hexColor;

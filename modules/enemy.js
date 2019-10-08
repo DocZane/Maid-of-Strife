@@ -1,6 +1,7 @@
 const ImpStats = require("../basestats/imp.json");
 const OgreStats = require("../basestats/ogre.json");
 const BasiliskStats = require("../basestats/basilisk.json");
+//translates the basestats of each underling to something that can be called in fight.js
 exports.Imp = function(currentPR) {
   this.header = ImpStats.header;
   this.type = ImpStats.type;

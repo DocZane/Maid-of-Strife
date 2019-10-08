@@ -9,3 +9,4 @@ worse
 >PR tracker
 >grists?
 >man there are so many little effects to keep in mind
+>Check to see if there are any bugs with damage (149 killing a 150 hp basilisk?)
