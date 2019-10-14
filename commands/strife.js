@@ -4,7 +4,6 @@ const Fight = require(`../modules/fight.js`);
 exports.run = (client, message, args) => {
     //pulls the color of the user for the edge of the embeded message.
     let color = message.member.displayHexColor;
-    if (color == '#000000') color = message.member.hoistRole.hexColor;
 
     //Strife choosing menu as an embeded message
     const embed = new Discord.RichEmbed()
