@@ -51,9 +51,7 @@ var dmg = 0;
         }
         sentEmbed.delete();
       })
-      .catch(collected => {
-        console.log ("someone fucked up something in Fight.");
-      });
+
 
   });
 }

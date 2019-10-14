@@ -21,7 +21,6 @@ exports.brawl = function(message, client, enemy1, playerFirst, color, dmg) {
       message.channel.send({embed})
       .then(sentEmbed => {
         sentEmbed.react("➡")
-        .catch(() => console.log("fuk u"));
         const filter = (reaction, user) => {
           return['➡'].includes(reaction.emoji.name) && user.id === message.author.id;
         };
@@ -58,7 +57,7 @@ exports.brawl = function(message, client, enemy1, playerFirst, color, dmg) {
               sentEmbed.delete();
           })
           .catch(collected => {
-            console.log ("Missed Timed out, unlikely to be a real issue.");
+            console.log ("Timed out, unlikely to be a real issue.");
           });
     });
   }
@@ -97,9 +96,7 @@ exports.brawl = function(message, client, enemy1, playerFirst, color, dmg) {
         }
         sentEmbed.delete();
       })
-      .catch(collected => {
-        console.log ("someone fucked up something in Brawl-Enemy.");
-      });
+
     });
   }
 };

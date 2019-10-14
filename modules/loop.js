@@ -38,9 +38,6 @@ if(hitTrue && !yourTurn){
              }
              sentEmbed.delete();
            })
-           .catch(collected => {
-             console.log ("someone fucked up something in Loop.");
-           });
          });
 
 }
