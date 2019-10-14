@@ -5,6 +5,7 @@ module.exports = (client, message) => {
   // Ignore messages not starting with the prefix (in auth.json)
   if (message.content.indexOf(client.auth.prefix) !== 0) return;
 
+	client.user.setActivity(">help in "+ client.guilds.size +" servers!");
   // Our standard argument/command name definition.
   const args = message.content.slice(client.auth.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
