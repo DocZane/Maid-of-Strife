@@ -33,6 +33,9 @@ exports.brawl = function(message, client, enemy1, playerFirst, color, dmg) {
               if (isNaN(args[0])){
                 message.channel.send("Try a number this time!");
               }
+              else if(args[0]<0){
+                message.channel.send("Damage can only be Positive, try again.")
+              }
             else{
               message.delete();
               dmg=args[0];
