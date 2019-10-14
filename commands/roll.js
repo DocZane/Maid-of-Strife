@@ -4,6 +4,7 @@ const Fight = require("../modules/fight.js");
 //this is for when a person actually calls >roll {die}
 exports.run = (client, message, args) => {
         //checks if the die is a valid roll or not (seeing if there is a d if NaN)
+      if(args[0]== undefined)return;
         if (isNaN(args[0])){
           if (args[0].match(/d/g)){
             //splits the dice up around the d
