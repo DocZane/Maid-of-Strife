@@ -1,7 +1,6 @@
 const Discord = require("discord.js");
 
 exports.run = (client, message, args) => {
-  let color = message.member.displayHexColor;
 //defines isDM as a role named DM
   let isDM = message.guild.roles.find(r => r.name === 'DM');
 //checks if the server has a role named DM
@@ -18,7 +17,7 @@ exports.run = (client, message, args) => {
       if(!args[0]){
       const embed = new Discord.RichEmbed()
       .setAuthor(message.author.username, message.author.avatarURL)
-      .setColor(color)
+      .setColor(message.member.displayHexColor)
       .setTitle(message.author.username+", **Welcome to the Config Panel!**")
       .setDescription("**Here, you can check what the Maid does for your session.\nThis can be updated in the form of >config {setting} [new value].\n more info on the settings can be found in >help config.**")
       .addField("strifelimitperday","5, 10, **20**, 30, 50, unlimited")

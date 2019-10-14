@@ -5,12 +5,12 @@ const Roll = require('../commands/roll.js');
 const Hbar = require("./hbar.js");
 const Loot = require('./loot.js');
 
-exports.loop = function(message, client, enemy1, hitTrue, yourTurn, color, dmg) {
+exports.loop = function(message, client, enemy1, hitTrue, yourTurn, dmg) {
 
 if(hitTrue && !yourTurn){
   const embed = new Discord.RichEmbed()
      .setAuthor(message.author.username, message.author.avatarURL)
-     .setColor(color)
+     .setColor(message.member.displayHexColor)
      .addField("Damage Dealt to you:",Roll.roll(enemy1.bd)+enemy1.sd)
      .addField("Your options are:","Abscond or Fight")
      .setThumbnail(
@@ -34,7 +34,7 @@ if(hitTrue && !yourTurn){
             message.channel.send("You ran away!");
              }
              else {
-               Brawl.brawl(message, client, enemy1, true, color, dmg);
+               Brawl.brawl(message, client, enemy1, true, dmg);
              }
              sentEmbed.delete();
            })
@@ -42,10 +42,10 @@ if(hitTrue && !yourTurn){
 
 }
   else if (!hitTrue && !yourTurn) {
-    Brawl.brawl(message, client, enemy1, true, color, dmg);
+    Brawl.brawl(message, client, enemy1, true, dmg);
   }
   else if (!hitTrue && yourTurn)  {
-    Brawl.brawl(message, client, enemy1, false, color, dmg);
+    Brawl.brawl(message, client, enemy1, false, dmg);
   }
   else{
     enemy1.chp=enemy1.chp-dmg;
@@ -53,7 +53,7 @@ if(hitTrue && !yourTurn){
     if (enemy1.chp<=0){
       const embed = new Discord.RichEmbed()
       .setAuthor(message.author.username, message.author.avatarURL)
-      .setColor(color)
+      .setColor(message.member.displayHexColor)
       .addField("HP:","Dead!")
       .addField("You won!","____")
       .addField("Rewards:",Loot.loot(message,client,enemy1))
@@ -63,7 +63,7 @@ if(hitTrue && !yourTurn){
           message.channel.send({embed})
     }
     else{
-    Brawl.brawl(message, client, enemy1, false, color, dmg);
+    Brawl.brawl(message, client, enemy1, false, dmg);
     }
   };
   };

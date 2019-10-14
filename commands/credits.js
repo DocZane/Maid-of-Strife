@@ -1,9 +1,8 @@
 const Discord = require("discord.js");
 //Press F to pay respects
 exports.run = (client, message, args) => {
-  let color = message.member.displayHexColor;
 const embed = new Discord.RichEmbed()
-.setColor(color)
+.setColor(message.member.displayHexColor)
 .setTitle("**Any and all people who helped me come into being!**")
 .addField("DocZane","Main Programmer, Founder")
 .addField("Lord_GabeM","Assistant Programmer, Good Friend")

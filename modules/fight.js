@@ -14,10 +14,9 @@ var dmg = 0;
     enemy1 = new Enemies.Ogre(0);
   else
     enemy1 = new Enemies.Basilisk(0);
-    let color = message.member.displayHexColor;
   const embed = new Discord.RichEmbed()
     .setAuthor(message.author.username, message.author.avatarURL)
-    .setColor(color)
+    .setColor(message.member.displayHexColor)
     //lists stats of the enemy, like name, health, and an Initiative Roll.
     .setTitle(enemy1.header + " " + enemy1.type + " approached you!")
     .addField("HP", Hbar.hbar(enemy1,message,client))
@@ -44,10 +43,10 @@ var dmg = 0;
         const reaction = collected.first();
 
         if (reaction.emoji.name === '✅') {
-          Brawl.brawl(message, client, enemy1, true, color, dmg);
+          Brawl.brawl(message, client, enemy1, true, dmg);
         }
         else {
-          Brawl.brawl(message, client, enemy1, false, color, dmg);
+          Brawl.brawl(message, client, enemy1, false, dmg);
         }
         sentEmbed.delete();
       })

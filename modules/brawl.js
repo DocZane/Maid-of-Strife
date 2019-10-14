@@ -5,12 +5,12 @@ const Message = require("../events/message.js");
 const Loop = require("./loop.js");
 const Hbar = require("./hbar.js");
 
-exports.brawl = function(message, client, enemy1, playerFirst, color, dmg) {
+exports.brawl = function(message, client, enemy1, playerFirst, dmg) {
   if (playerFirst){
     var damn = true;
       const embed = new Discord.RichEmbed()
         .setAuthor(message.author.username, message.author.avatarURL)
-        .setColor(color)
+        .setColor(message.member.displayHexColor)
         .addField("HP", Hbar.hbar(enemy1,message,client))
         .addField("Enemy AV:",10+enemy1.agl)
         .addField("Your Turn!","Enter your damage if you hit, or press ➡ if you missed!")
@@ -39,7 +39,7 @@ exports.brawl = function(message, client, enemy1, playerFirst, color, dmg) {
             else{
               message.delete();
               dmg=args[0];
-              Loop.loop(message, client, enemy1, true, true, color, dmg);
+              Loop.loop(message, client, enemy1, true, true, dmg);
               damn = false;
               sentEmbed.delete();
             }
@@ -51,7 +51,7 @@ exports.brawl = function(message, client, enemy1, playerFirst, color, dmg) {
           .then(collected => {
             const reaction = collected.first();
             if (reaction.emoji.name === '➡' && damn) {
-              Loop.loop(message, client, enemy1, false, true, color, dmg);
+              Loop.loop(message, client, enemy1, false, true, dmg);
               damn = false;
               sentEmbed.delete();
               return;
@@ -68,7 +68,7 @@ exports.brawl = function(message, client, enemy1, playerFirst, color, dmg) {
   else {
     const embed = new Discord.RichEmbed()
       .setAuthor(message.author.username, message.author.avatarURL)
-      .setColor(color)
+      .setColor(message.member.displayHexColor)
       .addField("Enemy's Turn!",enemy1.type)
       .addField("HP", Hbar.hbar(enemy1,message,client))
       .addField("Attack Roll:",Roll.roll(20) + enemy1.str)
@@ -92,10 +92,10 @@ exports.brawl = function(message, client, enemy1, playerFirst, color, dmg) {
         const reaction = collected.first();
 
         if (reaction.emoji.name === '✅') {
-        Loop.loop(message, client, enemy1, true, false, color, dmg);
+        Loop.loop(message, client, enemy1, true, false, dmg);
         }
         else {
-          Loop.loop(message, client, enemy1, false, false, color, dmg);
+          Loop.loop(message, client, enemy1, false, false, dmg);
         }
         sentEmbed.delete();
       })

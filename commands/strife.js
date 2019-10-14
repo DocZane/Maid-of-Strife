@@ -2,17 +2,16 @@ const Discord = require("discord.js");
 const Fight = require(`../modules/fight.js`);
 
 exports.run = (client, message, args) => {
-    //pulls the color of the user for the edge of the embeded message.
-    let color = message.member.displayHexColor;
+
 
     //Strife choosing menu as an embeded message
     const embed = new Discord.RichEmbed()
         .setAuthor(message.author.username, message.author.avatarURL)
-        .setColor(color)
+        .setColor(message.member.displayHexColor)
         .setTitle("What do you want to Strife?")
         .addField("Imp", "Any Tier")
-        .addField("Ogre", "Teir 1 and up")
-        .addField("Basilisk", "Teir 2 and up");
+        .addField("Ogre", "Tier 1 and up")
+        .addField("Basilisk", "Tier 2 and up");
         //Sets up the reaction emojis for each enemy to fight
         const imp = client.emojis.find(emoji => emoji.name === 'imp');
         const ogre = client.emojis.find(emoji => emoji.name === 'ogre');

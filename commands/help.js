@@ -3,11 +3,10 @@ const Discord = require("discord.js");
 
 //important help page for the users
 exports.run = (client, message, args) => {
-  let color = message.member.displayHexColor;
 
   const embed = new Discord.RichEmbed()
     .setAuthor(message.author.username, message.author.avatarURL)
-    .setColor(color)
+    .setColor(message.member.displayHexColor)
     //checks if there are any arguments, if there aren't any, sets the embed to
     //print the basic list of commands.
   if (!args[0]){
