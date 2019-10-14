@@ -15,7 +15,6 @@ var dmg = 0;
   else
     enemy1 = new Enemies.Basilisk(0);
     let color = message.member.displayHexColor;
-    if (color == '#000000') color = message.member.hoistRole.hexColor;
   const embed = new Discord.RichEmbed()
     .setAuthor(message.author.username, message.author.avatarURL)
     .setColor(color)

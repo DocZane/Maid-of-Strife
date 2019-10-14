@@ -2,7 +2,6 @@ const Discord = require("discord.js");
 
 exports.run = (client, message, args) => {
   let color = message.member.displayHexColor;
-  if (color == '#000000') color = message.member.hoistRole.hexColor;
 //defines isDM as a role named DM
   let isDM = message.guild.roles.find(r => r.name === 'DM');
 //checks if the server has a role named DM
