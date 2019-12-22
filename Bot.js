@@ -4,13 +4,16 @@ const auth = require("../Maid of Strife Json dump/auth.json");
 const fs = require("fs");
 const Enmap = require("enmap");
 
-
 client.auth = auth;
 
 client.on("ready",() => {
 	client.user.setActivity(">help in "+ client.guilds.size +" servers!");
 	console.log("I am Ready!");
 });
+
+
+
+// Using the standard .then() promise method:
 
 
 // This loop reads the /events/ folder and attaches each event file to the appropriate event.
