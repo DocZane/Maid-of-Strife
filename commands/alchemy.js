@@ -9,7 +9,7 @@ exports.run = (client, message, args) => {
 const prefix = '>';
 const andand = client.emojis.find(emoji => emoji.name === 'andand');
 const oror = client.emojis.find(emoji => emoji.name === 'oror');
-const reference = "!123456789?ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+const reference = "!?0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 var alc1=true;
 var alc2=false;
 var cc1=[''];
